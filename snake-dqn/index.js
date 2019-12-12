@@ -155,6 +155,7 @@ async function initGame() {
 (async function() {
   try {
     qNet = await tf.loadLayersModel(LOCAL_MODEL_URL);
+    console.log(`Loaded model from ${LOCAL_MODEL_URL}`);
     loadHostedModelButton.textContent = `Loaded model from ${LOCAL_MODEL_URL}`;
     initGame();
     enableGameButtons();
@@ -166,6 +167,7 @@ async function initGame() {
   loadHostedModelButton.addEventListener('click', async () => {
     try {
       qNet = await tf.loadLayersModel(REMOTE_MODEL_URL);
+      console.log(`Loaded model from ${REMOTE_MODEL_URL}`);
       loadHostedModelButton.textContent = `Loaded hosted model.`;
       loadHostedModelButton.disabled = true;
       initGame();
